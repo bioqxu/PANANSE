@@ -31,7 +31,7 @@ class Runenhancer(object):
             readtools(toolstable)
 
         print(self.CPU)
-        
+        self.sfile='Chrom_sizes'
 
     def star_map(self, sample, rtype="PE"):
         if not os.path.exists("bam"):
@@ -123,9 +123,9 @@ class Runenhancer(object):
         runShell4=os.popen(shell4)
         runShell4.readlines()
 
-    def read_chrsize(self, sfile=Chrom_sizes):
+    def read_chrsize(self):
         sdic={}
-        with open (sfile) as sizes:
+        with open (self.sfile) as sizes:
             for i in sizes:
                 sdic[i.split()[0]]=int(i.split()[1])
         return(sdic)
