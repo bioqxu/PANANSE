@@ -8,12 +8,11 @@
 import sys
 import ast
 import argparse
-from ananse import commands, __version__
-from genomepy import Genome
+from pananse import commands, __version__
 
 if __name__ == "__main__":
     description = """
-    ananse v{0}
+    pananse v{0}
     """.format(
         __version__
     )
@@ -23,7 +22,7 @@ if __name__ == "__main__":
         binding     infer TF binding sites in enhancer peaks
         network     built network for each sample
         influence   infer key TFs between two samples
-    type `ananse <command> -h` for more details
+    type `pananse <command> -h` for more details
     """
     usage = "%(prog)s [-h] <subcommand> [options]"
 
