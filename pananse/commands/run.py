@@ -21,5 +21,6 @@ def run(args):
         toolstable=args.toolstable, samplestable=args.samplestable, 
         outfile=args.outfile
     )
+    print("bb")
     a.run_enhancer()
 
