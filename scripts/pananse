@@ -1,32 +1,62 @@
 #!/usr/bin/env python
-from argparse import ArgumentParser
-# from area27 import generate_signal, link_it_up
+# Copyright (c) 2013-2019 Quan Xu <qxuchn@gmail.com>
+#
+# This module is free software. You can redistribute it and/or modify it under
+# the terms of the MIT License, see the file COPYING included with this
+# distribution.
 
-parser = ArgumentParser()
+import sys
+import ast
+import argparse
+from ananse import commands, __version__
+from genomepy import Genome
 
-subparsers = parser.add_subparsers()
+if __name__ == "__main__":
+    description = """
+    ananse v{0}
+    """.format(
+        __version__
+    )
 
-p = subparsers.add_parser("run")
+    epilog = """
+    commands:
+        binding     infer TF binding sites in enhancer peaks
+        network     built network for each sample
+        influence   infer key TFs between two samples
+    type `ananse <command> -h` for more details
+    """
+    usage = "%(prog)s [-h] <subcommand> [options]"
 
-p.add_argument("-t", "--toolstable", 
-            dest="toolstable",
-            metavar="TOOLSFILE",
-            help="Tools file")
-p.add_argument("-s", "--samplestable", 
-            dest="samplestable",
-            metavar="SAMPLESFILE",
-            help="Samples file")
-p.add_argument("-o", "--outfile", 
-            dest="outfile",
-            metavar="OUTFILE",
-            help="Output file")
-p.add_argument("-N", "--nthreads",
-            dest="nthreads",
-            type=int,
-            metavar="THREADS",
-            help="Number of threads")
-            
-args = p.parse_args()
+    parser = argparse.ArgumentParser(
+        usage=usage,
+        description=description,
+        epilog=epilog,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
 
-# signal = generate_signal(args.bamfile, window=2000, nthreads=args.nthreads)
-# link_it_up(args.outfile, signal)
+    subparsers = parser.add_subparsers()
+
+    p = subparsers.add_parser("run")
+
+    p.add_argument("-t", "--toolstable", 
+                dest="toolstable",
+                metavar="TOOLSFILE",
+                help="Tools file")
+    p.add_argument("-s", "--samplestable", 
+                dest="samplestable",
+                metavar="SAMPLESFILE",
+                help="Samples file")
+    p.add_argument("-o", "--outfile", 
+                dest="outfile",
+                metavar="OUTFILE",
+                help="Output file")
+    p.add_argument("-N", "--nthreads",
+                dest="nthreads",
+                type=int,
+                metavar="THREADS",
+                help="Number of threads")
+                
+    args = p.parse_args()
+
+    # signal = generate_signal(args.bamfile, window=2000, nthreads=args.nthreads)
+    # link_it_up(args.outfile, signal)
