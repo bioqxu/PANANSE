@@ -1,14 +1,14 @@
 import os
 
 def readtools(toolstable):
-    with open toolstable as ttable:
+    with open (toolstable) as ttable:
         for line in ttable:
             if not line.startswith("#"):
                 exec("self." + line.split()[0] + "=" + line.split()[1])
 
 def readsamples(samplestable):
     RUN_INDEX={}
-    with open samplestable as stable:
+    with open (samplestable) as stable:
         for line in stable:
             if not line.startswith("#"):
                 a=line.split()
@@ -21,7 +21,7 @@ def readsamples(samplestable):
                 if len(a) == 3:
                     RUN_INDEX[a[1]] = a[2]
                     if a[0] == "p300":
-                        exec("self.p300" + ")
+                        exec("self.p300" + "")
 
 class Runenhancer(object):
     def __init__(self, toolstable, samplestable):
