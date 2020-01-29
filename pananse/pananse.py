@@ -31,6 +31,7 @@ class Runenhancer(object):
             readtools(toolstable)
 
         print(self.CPU)
+        print("aaa")
         self.sfile='Chrom_sizes'
 
     def star_map(self, sample, rtype="PE"):
