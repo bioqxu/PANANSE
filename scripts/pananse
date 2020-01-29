@@ -2,7 +2,12 @@
 from argparse import ArgumentParser
 # from area27 import generate_signal, link_it_up
 
-p = ArgumentParser()
+parser = ArgumentParser()
+
+subparsers = parser.add_subparsers()
+
+p = subparsers.add_parser("run")
+
 p.add_argument("-t", "--toolstable", 
             dest="toolstable",
             metavar="TOOLSFILE",
