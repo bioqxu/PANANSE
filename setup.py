@@ -8,17 +8,17 @@ with open("README.md") as f:
     long_description = f.read()
 
 setup(
-    name="scepia",
+    name="pananse",
     version=versioneer.get_version(),
     long_description = long_description,
     long_description_content_type = 'text/markdown',
     description=DESCRIPTION,
-    author="Simon van Heeringen",
-    author_email="simon.vanheeringen@gmail.com",
-    url="https://github.com/vanheeringen-lab/scepia/",
+    author="Quan Xu",
+    author_email="qxuchn@gmail.com",
+    url="https://github.com/qxuchn/PANANSE/",
     license="MIT",
     packages=find_packages(),
-    scripts=["scripts/scepia"],
+    scripts=["scripts/pananse"],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
