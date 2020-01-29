@@ -21,20 +21,5 @@ def run(args):
         toolstable=args.toolstable, samplestable=args.samplestable, 
         outfile=args.outfile
     )
-    a.run_enhancer(args.fin_rpkm, args.outfile)
+    a.run_enhancer()
 
-
-
-p.add_argument("-t", "--toolstable", 
-            dest="toolstable",
-            metavar="TOOLSFILE",
-            help="Tools file")
-p.add_argument("-s", "--samplestable", 
-            dest="samplestable",
-            metavar="SAMPLESFILE",
-            help="Samples file")
-p.add_argument("-o", "--outfile", 
-            dest="outfile",
-            metavar="OUTFILE",
-            help="Output file")
-)
