@@ -8,14 +8,15 @@
 import sys
 import ast
 import argparse
-from pananse import commands, __version__
+from pananse import commands
 
 if __name__ == "__main__":
-    description = """
-    pananse v{0}
-    """.format(
-        __version__
-    )
+    description = ""
+    # """
+    # pananse v{0}
+    # """.format(
+    #     __version__
+    # )
 
     epilog = """
     commands:
