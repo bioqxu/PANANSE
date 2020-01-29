@@ -56,7 +56,7 @@ if __name__ == "__main__":
                 metavar="THREADS",
                 help="Number of threads")
                 
-    args = p.parse_args()
+    p.set_defaults(func=commands.run)
 
     # signal = generate_signal(args.bamfile, window=2000, nthreads=args.nthreads)
     # link_it_up(args.outfile, signal)
