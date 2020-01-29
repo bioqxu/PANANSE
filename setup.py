@@ -34,6 +34,6 @@ setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics",
     ],
     install_requires=[
-        
+        "six"
     ],
 )
