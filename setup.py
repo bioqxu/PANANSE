@@ -34,17 +34,6 @@ setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics",
     ],
     install_requires=[
-        "adjustText",
-        "biofluff",
-        "gimmemotifs",
-        "matplotlib",
-        "numpy",
-        "pandas",
-        "scanpy",
-        "scikit-learn",
-        "scipy",
-        "seaborn",
-        "tqdm",
-        "xdg",
+        
     ],
 )
