@@ -1,26 +1,16 @@
 import os
 
-# RUN_INDEX=[]
-# atac=[]
-# h3k27ac=[]
-# enhancerbed=""
-# p300=[]
-
-# STARREFDIR =    "~/.local/share/genomes/hg38/star"
-# Chrom_sizes=    "/home/qxu/.local/share/genomes/hg38/hg38.chrom.sizes"
-# CPU = 20
-
-# ##### TOOLS #####
-# TOOLDIR=        "~/bin/"
-# STAR =          TOOLDIR+"STAR-2.5.3a/bin/Linux_x86_64/STAR"
-# PICARD=         TOOLDIR+"picard.jar"
-# macs2 = "macs2"
-# idr = "idr"
-# ucsctools = "~/bin/UCSC/"
+def readtools(toolstable):
+    with open toolstable as ttable:
+        for line in ttable:
+            if not line.startswith("#"):
+                exec("self." + line.split()[0] + "=" + line.split()[1])
 
 class Runenhancer(object):
-    def __init__(self, tooltable, sampletable):
-        pass
+    def __init__(self, toolstable, samplestable):
+        readtools(toolstable)
+        print(self.CPU)
+        
 
     def star_map(self, sample, rtype="PE"):
         if not os.path.exists("bam"):
