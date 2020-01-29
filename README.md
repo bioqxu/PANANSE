@@ -26,7 +26,7 @@ $ conda config --add channels conda-forge
 Now you can create an environment for pananse:
 
 ``` 
-conda create -n pananse python=3 adjusttext biofluff gimmemotifs=0.14.0 scanpy louvain loguru pyarrow ipywidgets nb_conda
+conda create -n pananse python=3
 conda activate pananse
 ```
 
