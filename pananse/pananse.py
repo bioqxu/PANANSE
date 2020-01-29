@@ -6,9 +6,30 @@ def readtools(toolstable):
             if not line.startswith("#"):
                 exec("self." + line.split()[0] + "=" + line.split()[1])
 
+def readsamples(samplestable):
+    RUN_INDEX={}
+    with open samplestable as stable:
+        for line in stable:
+            if not line.startswith("#"):
+                a=line.split()
+                if len(a) == 0:
+                    pass
+                if len(a) == 1:
+                    exec("self." + a[0] + "=None")
+                if len(a) == 2:
+                    print("Please input SE/PE.")
+                if len(a) == 3:
+                    RUN_INDEX[a[1]] = a[2]
+                    if a[0] == "p300":
+                        exec("self.p300" + ")
+
 class Runenhancer(object):
     def __init__(self, toolstable, samplestable):
-        readtools(toolstable)
+        if toolstable is None:
+            readtools("../data/toolstable.txt")
+        else:
+            readtools(toolstable)
+
         print(self.CPU)
         
 
@@ -193,5 +214,17 @@ class Runenhancer(object):
                     r=commd1.read()
                     if r != "":
                         fl2.write(a[0]+"\t"+a[1]+"\t"+a[2]+"\t"+str(r))
+
+    def run_enhancer(self, p300, atac, h3k27ac, enhancerbed):
+        for i in RUN_INDEX:
+            self.star_map(i,RUN_INDEX[i])
+            self.rm_dup(i)
+            self.call_peak(i, INPUT=None)
+
+        if len(p300)==0:
+            self.runATACsample(atac, h3k27ac, enhancerbed)
+        else:
+            self.runP300sample(p300, enhancerbed)
+
 
 

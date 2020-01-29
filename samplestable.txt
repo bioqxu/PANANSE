@@ -1,7 +1,5 @@
 
-RUN_INDEX={"KRT_p300":"SE"}
-# configfile: "config.yaml"
-atac=[]
-h3k27ac=[]
-enhancerbed="../KRT_enhancer.bed"
-p300=["KRT_p300"]
+
+p300       KRT_p300      SE
+atac 
+h3k27ac 
